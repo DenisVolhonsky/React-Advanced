@@ -1,8 +1,10 @@
 import React from 'react'
 import logo from '../../../assets/img/logo.jpg' 
 
+import styles from './Logo.module.css'
+
 const Logo = () => (
-  <img src={logo} alt="logo" width="70px" height="70px" />
+  <img src={logo} alt="logo" className={styles.logo}/>
 )
 
 export default Logo

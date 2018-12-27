@@ -1,0 +1,9 @@
+.userMenu {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.userName {
+  margin: 10px;
+}
