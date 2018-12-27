@@ -1,10 +1,9 @@
 import React from 'react';
 
 import Avatar from './Avatar/Avatar';
+import Dropdown from './Dropdown/Dropdown'
 
 import styles from './UserMenu.module.css'
-
-
 
 const UserMenu = () => {
   return (
@@ -13,6 +12,7 @@ const UserMenu = () => {
       <span className={styles.userName}>
           <a href="/" >Bob Marley</a>
       </span>
+      <Dropdown/>
     </div>
   )
 }

@@ -1,0 +1,13 @@
+.dropdown {
+  position: absolute;
+  right: 100px;
+  top: 100px;
+  border: 1px solid black;
+  width: 150px;
+  height: 150px;
+}
+
+.logoutBtn {
+  display: block;
+  margin: 0 auto;
+}
