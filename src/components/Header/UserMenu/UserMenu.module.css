@@ -2,6 +2,7 @@
   display: inline-flex;
   align-items: center;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .userName {

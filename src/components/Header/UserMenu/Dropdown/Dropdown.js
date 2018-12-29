@@ -13,7 +13,7 @@ const Dropdown = () => (
         </li>
       ))}
     </ul>
-    <button className={styles.logoutBtn}>Logout</button>
+    <button type="button" className={styles.logoutBtn}>Logout</button>
   </div>
 );
 
