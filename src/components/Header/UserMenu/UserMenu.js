@@ -1,20 +1,20 @@
 import React from 'react';
 
 import Avatar from './Avatar/Avatar';
-import Dropdown from './Dropdown/Dropdown'
+import Dropdown from './Dropdown/Dropdown';
 
-import styles from './UserMenu.module.css'
+import styles from './UserMenu.module.css';
 
 const UserMenu = () => {
   return (
     <div className={styles.userMenu}>
-      <Avatar/>
+      <Avatar />
       <span className={styles.userName}>
-          <a href="/" >Bob Marley</a>
+        <a href="/">Bob Marley</a>
       </span>
-      <Dropdown/>
+      <Dropdown />
     </div>
-  )
-}
+  );
+};
 
-export default UserMenu
+export default UserMenu;

@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './History.module.css'
+import styles from './History.module.css';
 
-import orderHistory from '../../order-history.json'
+import orderHistory from '../../order-history.json';
 
-const header = ['Date', 'Price', 'Delivery address', 'Rating']
+const header = ['Date', 'Price', 'Delivery address', 'Rating'];
 
 const History = () => (
   <div>
@@ -12,18 +12,22 @@ const History = () => (
     <table className={styles.orderTable}>
       <thead>
         <tr>
-          {header.map(item => <th key={item}>{item}</th>)}
+          {header.map(item => (
+            <th key={item}>{item}</th>
+          ))}
         </tr>
-      </thead> 
+      </thead>
       <tbody>
         {orderHistory.map(item => (
           <tr key={item.id}>
-            {Object.values(item).map((value, idx) => idx !==0 && <td key={value}>{value}</td>)}
+            {Object.values(item).map(
+              (value, idx) => idx !== 0 && <td key={value}>{value}</td>,
+            )}
           </tr>
         ))}
       </tbody>
     </table>
   </div>
-)
+);
 
-export default History
+export default History;

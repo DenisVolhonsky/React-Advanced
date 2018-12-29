@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./Navigation.module.css";
+import React from 'react';
+import styles from './Navigation.module.css';
 
-const menuItems = ["menu", "about", "contact", "delivery"];
+const menuItems = ['menu', 'about', 'contact', 'delivery'];
 
 const Navigation = () => (
   <ul className={styles.list}>
