@@ -1,23 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import styles from './Auth.module.css';
 
-const fields = ['Email', 'Password'];
+const fields = [
+  {
+    name: 'email',
+    type: 'email',
+  },
+  {
+    name: 'password',
+    type: 'password',
+  },
+];
 
-const SignIn = () => (
-  <div className={styles.form}>
-    <span>SignIn</span>
-    <br />
-    {fields.map(input => (
-      <input
-        type="text"
-        key={input}
-        placeholder={input}
-        className={styles.fields}
-      />
-    ))}
-    <button>SignIn</button>
-  </div>
-);
+const INITIAL_STATE = {
+  email: '',
+  password: '',
+};
 
-export default SignIn;
+export default class SignIn extends Component {
+  state = { ...INITIAL_STATE };
+
+  handleChange = e =>
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+
+  handleFormSubmit = e => {
+    e.preventDefault();
+    console.log(this.state);
+    this.reset();
+  };
+
+  reset = () => this.setState({ ...INITIAL_STATE });
+
+  render() {
+    return (
+      <form className={styles.form} onSubmit={this.handleFormSubmit}>
+        <span>SignIn</span>
+        <br />
+        {fields.map(({ name, type }) => (
+          <input
+            key={name}
+            type={type}
+            placeholder={name}
+            className={styles.fields}
+            name={name}
+            value={this.state[name]}
+            onChange={this.handleChange}
+          />
+        ))}
+        <button type="submit">Sign in as {this.state.name}</button>
+      </form>
+    );
+  }
+}
