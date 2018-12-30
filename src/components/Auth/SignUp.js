@@ -26,15 +26,18 @@ const INITIAL_STATE = {
   email: '',
   phone: '',
   password: '',
+  agreedToTerms: false,
 };
 
 export default class SignUp extends Component {
   state = {...INITIAL_STATE};
 
-  handleChange = e =>
+  handleChange = e => {
+    const {name, value} = e.target
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+  }
 
   handleFormSubmit = e => {
     e.preventDefault();
@@ -42,9 +45,17 @@ export default class SignUp extends Component {
     this.reset();
   };
 
+  handleChangeAgree = e => {
+    const {checked} = e.target
+    this.setState({
+      agreedToTerms: checked,
+    })
+  }
+
   reset = () => this.setState({...INITIAL_STATE})
 
   render() {
+    const {agreedToTerms} = this.state
     return (
       <form className={styles.form} onSubmit={this.handleFormSubmit}>
         <span>SignUp</span>
@@ -60,7 +71,12 @@ export default class SignUp extends Component {
             onChange={this.handleChange}
           />
         ))}
-        <button type="submit">Sign up as {this.state.name}</button>
+        <br />
+        <label>
+          Agree to terms
+          <input type="checkbox" checked={agreedToTerms} onChange={this.handleChangeAgree} className={styles.fields}/>
+        </label>
+        <button disabled={!agreedToTerms} type="submit">Sign up as {this.state.name}</button>
       </form>
     );
   }

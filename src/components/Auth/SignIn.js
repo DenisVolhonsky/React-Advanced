@@ -21,10 +21,13 @@ const INITIAL_STATE = {
 export default class SignIn extends Component {
   state = { ...INITIAL_STATE };
 
-  handleChange = e =>
+  handleChange = e => {
+    const {name, value} = e.target
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+  }
+   
 
   handleFormSubmit = e => {
     e.preventDefault();

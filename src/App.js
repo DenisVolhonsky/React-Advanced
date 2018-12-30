@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Header from './components/Header/Header';
 import Auth from './components/Auth/Auth';
 import History from './components/History/History';
+import Menu from './components/Menu/Menu'
 
 import './App.css';
 
@@ -24,6 +25,7 @@ class App extends Component {
         <Header />
         <Auth />
         <History />
+        <Menu />
       </div>
     );
   }
