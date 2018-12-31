@@ -18,9 +18,15 @@ const categories = [
   'Безалкогольные напитки'
 ]
 
+
+const filtereNodes = (nodes, filter) => {
+  return nodes.filter(item => item.toLowerCase().includes(filter.toLowerCase()))
+}
+
 class Menu extends Component {
   state = {
     selectedCategories: [],
+    filter: '',
   }
 
   handleChange = e => {
@@ -36,15 +42,23 @@ class Menu extends Component {
       selectedCategories: this.state.selectedCategories.filter(el => el !== item )
     })
   }
+
+  handleFilterChange = e => {
+    if(this.state.selectedCategories)
+      this.setState({
+        filter: e.target.value
+      })
+  }
   
   render() {
-    console.log(this.state.selectedCategories)
+    const {selectedCategories, filter} = this.state;
+    const filteredNodes = filtereNodes(selectedCategories, filter)
     return (
       <div>
         <DropdownMenu allCategories={categories} onSelect={this.handleChange} />
-        <ResultMenu selectedCategories={this.state.selectedCategories} deleteMenuItem={this.handleDelete} />
-        {/* <FilterMenu/>
-        <CardMenu/> */}
+        <ResultMenu selectedCategories={filteredNodes} deleteMenuItem={this.handleDelete} />
+        <FilterMenu onFilterChange={this.handleFilterChange} filter={this.state.filter} />
+        <CardMenu/>
       </div>
     )
   }

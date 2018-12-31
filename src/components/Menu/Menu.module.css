@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.image {
+  display: block;
+  width: 200px;
+  height: 200px;
+}
+
+/* .lhs {
+  width: 250px;
+  height: 300px;
+}
+
+.rhs {
+  height: 300px;
+} */

@@ -3,7 +3,7 @@ import React from 'react';
 const DropdownMenu = ({ allCategories, onSelect}) => (
   <label>
     Выберите категорию блюд:
-    <select name="categories" defaultValue='...' onChange={onSelect}>
+    <select name="categories" defaultValue='...' onChange={onSelect} autoFocus>
       {allCategories.map(item =>
         item === '...' ? (
           <option key={item} value={item} disabled>
